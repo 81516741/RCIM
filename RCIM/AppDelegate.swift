@@ -15,27 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,RCIMUserInfoDataSource{
     var window: UIWindow?
     var iconLingDa = "http://pic.baike.soso.com/p/20090711/20090711101754-314944703.jpg"
     var iconLingDaSuper = "http://pic.baike.soso.com/p/20090711/20090711100446-226055609.jpg"
-
-    /*当聊天界面没有对话时，第一次显示各自对话会各自调用一次
-     怎么理解呢？
-     因为融云要知道头像和名字，所以会在第一次显示时调用一次
-     */
-    func getUserInfoWithUserId(userId: String!, completion: ((RCUserInfo!) -> Void)!) {
-        let userinfo = RCUserInfo()
-        userinfo.userId = userId
-        switch userId {
-        case "lingda":
-            userinfo.name = "令达"
-            userinfo.portraitUri = iconLingDa
-        case "lingdasuper":
-            userinfo.name = "令达super"
-            userinfo.portraitUri = iconLingDaSuper
-        default:
-            print("什么都没有")
-        }
-      completion(userinfo)
-        
-    }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         /*
@@ -47,27 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,RCIMUserInfoDataSource{
         appkey : ik1qhw091mnsp  appsecret : zSz3dvCS1wWBgr
          
         */
-        
-        //初始化
-        RCIM.sharedRCIM().initWithAppKey("ik1qhw091mnsp")
-        //设置数据源
-        RCIM.sharedRCIM().userInfoDataSource = self
-        //连接
-        
-        RCIM.sharedRCIM().connectWithToken("XTyALWoAFrTKskqkgPhvmGnJoliatGpQ1nGgbRwX7LdzEDmZQ10/dDncbfzzIuy/ufrRwdl0i8LbZTolxT2Kkw==", success: { (success) in
-            //这个应该是用来保存当前用户信息的吧，便于以后取出
-            let userInfo = RCUserInfo(userId: "lingda",name: "令达",portrait: self.iconLingDa)
-            RCIM.sharedRCIM().currentUserInfo = userInfo
-            print("连接成功")
-            }, error: { (error) in
-                print("连接失败\(error)")
-            }) { 
-                print("token错误或者失效")
-        }
-        
-        //配置主题颜色
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+         setTinColor()
         
         return true
     }
@@ -158,6 +117,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,RCIMUserInfoDataSource{
             }
         }
     }
+    //MARK: - 注册融云
+    func registerRCIM(complete:()->Void){
+        //初始化
+        RCIM.sharedRCIM().initWithAppKey("ik1qhw091mnsp")
+        //设置数据源
+        RCIM.sharedRCIM().userInfoDataSource = self
+        //连接
+        RCIM.sharedRCIM().connectWithToken("XTyALWoAFrTKskqkgPhvmGnJoliatGpQ1nGgbRwX7LdzEDmZQ10/dDncbfzzIuy/ufrRwdl0i8LbZTolxT2Kkw==", success: { (success) in
+            //这个应该是用来保存当前用户信息的吧，便于以后取出
+            let userInfo = RCUserInfo(userId: "lingda",name: "令达",portrait: self.iconLingDa)
+            RCIM.sharedRCIM().currentUserInfo = userInfo
+            print("连接成功")
+            complete()
+            }, error: { (error) in
+                print("连接失败\(error)")
+        }) {
+            print("token错误或者失效")
+        }
 
+    }
+    
+    // MARK: - 融云的代理方法
+    /*当聊天界面没有对话时，第一次显示各自对话会各自调用一次
+     怎么理解呢？
+     因为融云要知道头像和名字，所以会在第一次显示时调用一次
+     */
+    func getUserInfoWithUserId(userId: String!, completion: ((RCUserInfo!) -> Void)!) {
+        let userinfo = RCUserInfo()
+        userinfo.userId = userId
+        switch userId {
+        case "lingda":
+            userinfo.name = "令达"
+            userinfo.portraitUri = iconLingDa
+        case "lingdasuper":
+            userinfo.name = "令达super"
+            userinfo.portraitUri = iconLingDaSuper
+        default:
+            print("什么都没有")
+        }
+        completion(userinfo)
+        
+    }
+    
+    // MARK: - 设置主题颜色
+    func setTinColor(){
+        //配置主题颜色
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+    }
 }
+
 

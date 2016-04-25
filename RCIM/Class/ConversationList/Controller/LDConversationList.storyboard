@@ -19,23 +19,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="smK-Vs-X1J">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ap4-wP-VgA">
-                            <connections>
-                                <segue destination="1ZJ-Ge-WK3" kind="show" id="KOf-8A-V3w">
-                                    <nil key="action"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ap4-wP-VgA"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="1ZJ-Ge-WK3" kind="show" identifier="chatVC" id="2nx-Q3-edX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbY-WI-Uye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1525" y="167"/>
+            <point key="canvasLocation" x="1495" y="178"/>
         </scene>
         <!--ConversationVC-->
         <scene sceneID="d5q-QM-LdX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GAy-Nq-AyP" sceneMemberID="firstResponder"/>
                 <viewController id="1ZJ-Ge-WK3" customClass="LDConversationVC" customModule="RCIM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VEP-qY-45J"/>
@@ -49,13 +45,13 @@
                     <navigationItem key="navigationItem" id="sDi-xu-tf8"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAy-Nq-AyP" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1882" y="167"/>
         </scene>
         <!--会话-->
         <scene sceneID="Q6z-2q-HiZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="azD-Z4-ZTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GEp-8w-KXY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="会话" id="FSP-4s-Sf6"/>
                     <toolbarItems/>
@@ -69,6 +65,7 @@
                         <segue destination="FBU-yW-Esf" kind="relationship" relationship="rootViewController" id="6Ew-qR-qH8"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azD-Z4-ZTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1123" y="167"/>
         </scene>
