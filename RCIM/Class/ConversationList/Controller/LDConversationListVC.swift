@@ -10,6 +10,8 @@ import UIKit
 
 class LDConversationListVC: RCConversationListViewController {
 
+    var cvModel : RCConversationModel?
+    var chatVC : LDConversationVC = LDConversationVC()
     override func viewDidLoad() {
         super.viewDidLoad()
         registRCIM()
@@ -19,14 +21,15 @@ class LDConversationListVC: RCConversationListViewController {
         tabBarController?.tabBar.hidden = false
     }
     
-    // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        tabBarController?.tabBar.hidden = true
-    }
-    
     //MARK : - 点击cell 的事件
     override func onSelectedTableRow(conversationModelType: RCConversationModelType, conversationModel model: RCConversationModel!, atIndexPath indexPath: NSIndexPath!) {
         performSegueWithIdentifier("chatVC", sender: nil)
+        tabBarController?.tabBar.hidden = true
+        chatVC.targetId =  model.targetId
+        chatVC.title = model.conversationTitle
+        chatVC.conversationType = .ConversationType_PRIVATE
+        chatVC.setMessageAvatarStyle(.USER_AVATAR_CYCLE)
+        
     }
     
     // MARK: - 注册融云，并初始化

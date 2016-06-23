@@ -58,6 +58,7 @@
 		F886231C1CC7310000C44F6E /* RCIMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RCIMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88623201CC7310000C44F6E /* RCIMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCIMUITests.swift; sourceTree = "<group>"; };
 		F88623221CC7310000C44F6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8BDCD3D1CDB3B7E0027CC24 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +171,7 @@
 		F88622FC1CC730FF00C44F6E /* RCIM */ = {
 			isa = PBXGroup;
 			children = (
+				F8BDCD3D1CDB3B7E0027CC24 /* MyPlayground.playground */,
 				F88622FD1CC730FF00C44F6E /* AppDelegate.swift */,
 				F88623011CC730FF00C44F6E /* Main.storyboard */,
 				6BF053D81CCCAB05009EE932 /* Class */,
@@ -535,6 +537,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = RCIM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ld.RCIM.RCIM;
@@ -553,6 +556,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = RCIM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ld.RCIM.RCIM;
